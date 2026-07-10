@@ -1,12 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spaura</title>
+    <title>Spora</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>🎵 Welcome to Spaura</h1>
-    <p>Your AI music companion.</p>
+<nav class="navbar">
+    <div class="logo">
+    <span class="logo-icon">S</span>
+    <span class="logo-text">pora</span>
+</div>
+
+    <a href="#" class="spotify-btn">
+        Connect Spotify
+    </a>
+</nav>
+
+<section class="hero">
+
+  
+    <h1>
+        Music that matches your moment.
+    </h1>
+
+    <p>
+        Discover playlists crafted from your weather,
+        time and surroundings.
+    </p>
+
+    <a href="#" class="hero-btn">
+        Get Started →
+    </a>
+
+</section>
 </body>
 </html>

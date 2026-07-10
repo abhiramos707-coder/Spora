@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #0a0a0a;
+    color: white;
+}
+
+.navbar {
+    width: 100%;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1DB954;
+}
+
+.spotify-btn {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #1DB954, #22c55e);
+    padding: 13px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all .3s ease;
+    box-shadow: 0 0 25px rgba(29,185,84,.25);
+}
+
+.spotify-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(29,185,84,.45);
+}
+.hero {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin: 0 auto 20px;
+    white-space: nowrap;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    max-width: 700px;
+    line-height: 1.8;
+}
