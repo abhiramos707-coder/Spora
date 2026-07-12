@@ -47,15 +47,14 @@
     transition:all .35s ease;
 
 }
-
 .primary-btn:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px) scale(1.03);
 
-    box-shadow:0 18px 55px rgba(53,230,150,.45);
+    box-shadow:
+    0 20px 60px rgba(60,240,150,.45);
 
 }
-
 /* ---------- Secondary ---------- */
 
 .secondary-btn{

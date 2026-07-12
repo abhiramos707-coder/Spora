@@ -54,12 +54,10 @@
 
 .status-pill:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-6px) scale(1.03);
 
-    border-color:rgba(83,245,126,.4);
+    border-color:rgba(83,245,126,.35);
 
-    background:rgba(255,255,255,.08);
-
-    box-shadow:0 12px 30px rgba(83,245,126,.15);
+    box-shadow:0 15px 35px rgba(83,245,126,.18);
 
 }

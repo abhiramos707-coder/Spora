@@ -21,17 +21,31 @@
 /* ---------- Brand ---------- */
 
 .brand{
+
     display:flex;
+
     align-items:center;
 
+    gap:14px;
+
     text-decoration:none;
+
+}
+.brand img{
+
+    width:34px;
+
+    height:34px;
+
+    display:block;
+
 }
 
 .brand-text{
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:2.2rem;
+    font-size:2rem;
 
     font-weight:600;
 
@@ -89,5 +103,30 @@
 .connect-btn i{
 
     font-size:1.15rem;
+
+}
+.navbar{
+
+    animation:navbarFade .7s ease;
+
+}
+
+@keyframes navbarFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
 
 }

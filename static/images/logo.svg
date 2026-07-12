@@ -1,0 +1,16 @@
+<svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="sporaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#59F97D"></stop>
+      <stop offset="100%" stop-color="#2DD7C8"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect x="3" y="11" width="3" height="12" rx="2" fill="url(#sporaGradient)"></rect>
+  <rect x="9" y="6" width="3" height="22" rx="2" fill="url(#sporaGradient)"></rect>
+  <rect x="15" y="13" width="3" height="8" rx="2" fill="url(#sporaGradient)"></rect>
+  <rect x="21" y="4" width="3" height="26" rx="2" fill="url(#sporaGradient)"></rect>
+  <rect x="27" y="11" width="3" height="12" rx="2" fill="url(#sporaGradient)"></rect>
+
+</svg>
