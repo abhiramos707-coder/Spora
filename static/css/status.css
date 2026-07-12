@@ -1,0 +1,65 @@
+/* ==========================================
+   STATUS PILLS
+========================================== */
+
+.status-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:22px;
+
+    margin-top:10px;
+
+}
+
+.status-pill{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 30px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    color:#ffffff;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+.status-pill i{
+
+    color:#53F57E;
+
+    font-size:1.1rem;
+
+}
+
+.status-pill:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(83,245,126,.4);
+
+    background:rgba(255,255,255,.08);
+
+    box-shadow:0 12px 30px rgba(83,245,126,.15);
+
+}

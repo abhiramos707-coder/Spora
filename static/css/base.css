@@ -1,0 +1,99 @@
+/* ==========================================
+   GOOGLE FONTS
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+
+    background-image:
+
+linear-gradient(
+
+rgba(3,8,12,.84),
+
+rgba(3,8,12,.93)
+
+),
+
+url("/static/images/aurora-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   VARIABLES
+========================================== */
+
+:root{
+
+    --primary:#41f28d;
+
+    --secondary:#28d7d1;
+
+    --text:#ffffff;
+
+    --muted:#a9afb8;
+
+    --border:rgba(255,255,255,.12);
+
+}
+
+/* ==========================================
+   LINKS
+========================================== */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ==========================================
+   BUTTON RESET
+========================================== */
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container{
+
+    width:min(1280px,92%);
+
+    margin:auto;
+
+}

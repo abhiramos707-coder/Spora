@@ -1,0 +1,73 @@
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero{
+
+    min-height:calc(100vh - 90px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:0 20px;
+
+    margin-top:-30px;
+}
+
+/* ---------- Heading ---------- */
+
+.hero h1{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:clamp(3rem,4.8vw,5rem);
+
+    font-weight:700;
+
+    line-height:1.05;
+
+    letter-spacing:-3px;
+
+    max-width:1400px;
+
+    margin-bottom:28px;
+
+}
+
+/* Gradient word */
+
+.hero h1 span{
+
+    display:block;
+
+    background:linear-gradient(
+        90deg,
+        #56F57E,
+        #2ED7C9
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    background-clip:text;
+
+}
+
+/* ---------- Paragraph ---------- */
+
+.hero p{
+
+    max-width:760px;
+
+    font-size:1.45rem;
+
+    line-height:1.8;
+
+    color:#B8C0CC;
+
+    margin-bottom:50px;
+
+}

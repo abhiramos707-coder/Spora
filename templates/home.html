@@ -2,40 +2,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spora</title>
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/status.css' %}">
+    <link rel="stylesheet" href="{% static 'css/wave.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 </head>
 <body>
-<nav class="navbar">
-    <div class="logo">
-    <span class="logo-icon">S</span>
-    <span class="logo-text">pora</span>
-</div>
 
-    <a href="#" class="spotify-btn">
-        Connect Spotify
-    </a>
-</nav>
+    <div class="background-overlay"></div>
 
-<section class="hero">
+<header class="navbar">
 
-  
-    <h1>
-        Music that matches your moment.
-    </h1>
+    <a href="#" class="brand">
 
-    <p>
-        Discover playlists crafted from your weather,
-        time and surroundings.
-    </p>
+        <span class="brand-text">Spora</span>
 
-    <a href="#" class="hero-btn">
-        Get Started →
     </a>
 
-</section>
+    <a href="#" class="connect-btn">
+
+        <i class="fa-brands fa-spotify"></i>
+
+        <span>Connect Spotify</span>
+
+    </a>
+
+</header>
+
+    </header>
+
+
+    <main class="hero">
+
+        <h1>
+
+            Music that matches
+
+            <span>your moment.</span>
+
+        </h1>
+
+        <p>
+
+            Discover playlists crafted from your weather,
+            time and surroundings.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#" class="primary-btn">
+
+                <i class="fa-brands fa-spotify"></i>
+
+                Connect Spotify
+
+            </a>
+
+            <a href="#" class="secondary-btn">
+
+                Learn More
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+        <div class="status-row">
+
+            <div class="status-pill">
+
+                <i class="fa-solid fa-cloud-rain"></i>
+
+                Weather
+
+            </div>
+
+            <div class="status-pill">
+
+                <i class="fa-regular fa-clock"></i>
+
+                Time
+
+            </div>
+
+            <div class="status-pill">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Location
+
+            </div>
+
+        </div>
+
+        <div class="wave">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </main>
+
 </body>
 </html>
