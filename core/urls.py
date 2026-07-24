@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path("spotify/login/", views.spotify_login, name="spotify_login"),
 ]
