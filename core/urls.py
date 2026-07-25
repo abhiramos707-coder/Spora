@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path("spotify/login/", views.spotify_login, name="spotify_login"),
     path("spotify/callback/", views.spotify_callback, name="spotify_callback"),
+    path("dashboard/", views.dashboard, name="dashboard"),
 ]

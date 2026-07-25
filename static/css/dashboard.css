@@ -1,0 +1,85 @@
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard{
+    margin-top:40px;
+}
+
+.dashboard h1{
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.dashboard p{
+    color:var(--muted);
+    font-size:1.1rem;
+    margin-bottom:50px;
+}
+/* ==========================================
+   WELCOME CARD
+========================================== */
+
+.welcome-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:40px;
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    max-width:900px;
+
+}
+
+.welcome-card h1{
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+
+}
+
+.welcome-card p{
+
+    color:var(--muted);
+
+    font-size:1.15rem;
+
+}
+/* ==========================================
+   PROFILE
+========================================== */
+
+.profile-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:600;
+
+}
+
+.profile-pic{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--primary);
+
+}

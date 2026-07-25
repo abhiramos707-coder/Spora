@@ -30,6 +30,10 @@ def spotify_login(request):
     return redirect(auth_url)
 
 
+from django.shortcuts import redirect
+import requests
+import base64
+
 def spotify_callback(request):
     code = request.GET.get("code")
 
@@ -56,19 +60,61 @@ def spotify_callback(request):
         "code": code,
         "redirect_uri": settings.SPOTIFY_REDIRECT_URI,
     }
-    print("=" * 60)
-    print("CLIENT ID:", settings.SPOTIFY_CLIENT_ID)
-    print("REDIRECT URI:", settings.SPOTIFY_REDIRECT_URI)
-    print("CODE:", code)
-    print("DATA:", data)
-    print("=" * 60)
+
     response = requests.post(
         token_url,
         headers=headers,
         data=data,
     )
 
+    if response.status_code != 200:
+        return HttpResponse(f"Error: {response.text}")
+
+    token_info = response.json()
+    access_token = token_info.get("access_token")
+
+    if not access_token:
+        return HttpResponse("Failed to get access token.")
+
+    # Store the access token in the session
+    request.session["access_token"] = access_token
+
+    # Redirect to the dashboard
+    return redirect("dashboard")
+def dashboard(request):
+    access_token = request.session.get("access_token")
+
+    if not access_token:
+        return redirect("spotify_login")
+
+    headers = {
+        "Authorization": f"Bearer {access_token}"
+    }
+
+    response = requests.get(
+        "https://api.spotify.com/v1/me",
+        headers=headers
+    )
+
+    if response.status_code != 200:
+        return HttpResponse("Failed to fetch Spotify profile.")
+
+    profile = response.json()
+
+    context = {
+        "name": profile.get("display_name"),
+        "email": profile.get("email"),
+        "country": profile.get("country"),
+        "profile_image": (
+            profile["images"][0]["url"]
+            if profile.get("images")
+            else None
+        ),
+    }
+
+    return render(request, "dashboard.html", context)
     # Show Spotify's response if token exchange fails
+   
     if response.status_code != 200:
         return HttpResponse(
             f"<pre>{response.status_code}\n\n{response.text}</pre>"

@@ -1,128 +1,87 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spora</title>
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/hero.css' %}">
-    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/status.css' %}">
-    <link rel="stylesheet" href="{% static 'css/wave.css' %}">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-</head>
-<body>
+{% block title %}Spora{% endblock %}
 
-    <div class="background-overlay"></div>
+{% block extra_css %}
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-<header class="navbar">
+<link rel="stylesheet" href="{% static 'css/hero.css' %}">
+<link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+<link rel="stylesheet" href="{% static 'css/status.css' %}">
+<link rel="stylesheet" href="{% static 'css/wave.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+{% endblock %}
 
-<a href="#" class="brand">
-
-    <img src="{% static 'images/logo.svg' %}" alt="Spora Logo">
-
-    <span class="brand-text">Spora</span>
-
-</a>
-
+{% block navbar_right %}
 <a href="{% url 'spotify_login' %}" class="connect-btn">
     <i class="fa-brands fa-spotify"></i>
     <span>Connect Spotify</span>
 </a>
+{% endblock %}
 
+{% block content %}
 
+<div class="background-overlay"></div>
 
-    </header>
+<main class="hero">
 
+    <h1>
+        Music that matches
+        <span>your moment.</span>
+    </h1>
 
-    <main class="hero">
+    <p>
+        Discover playlists crafted from your weather,
+        time and surroundings.
+    </p>
 
-        <h1>
+    <div class="hero-buttons">
 
-            Music that matches
+        <a href="{% url 'spotify_login' %}" class="primary-btn">
+            <i class="fa-brands fa-spotify"></i>
+            Connect Spotify
+        </a>
 
-            <span>your moment.</span>
+        <a href="#" class="secondary-btn">
+            Learn More
+            <span>→</span>
+        </a>
 
-        </h1>
+    </div>
 
-        <p>
+    <div class="status-row">
 
-            Discover playlists crafted from your weather,
-            time and surroundings.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#" class="primary-btn">
-
-                <i class="fa-brands fa-spotify"></i>
-
-                Connect Spotify
-
-            </a>
-
-            <a href="#" class="secondary-btn">
-
-                Learn More
-
-                <span>→</span>
-
-            </a>
-
+        <div class="status-pill">
+            <i class="fa-solid fa-cloud-rain"></i>
+            Weather
         </div>
 
-        <div class="status-row">
-
-            <div class="status-pill">
-
-                <i class="fa-solid fa-cloud-rain"></i>
-
-                Weather
-
-            </div>
-
-            <div class="status-pill">
-
-                <i class="fa-regular fa-clock"></i>
-
-                Time
-
-            </div>
-
-            <div class="status-pill">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                Location
-
-            </div>
-
+        <div class="status-pill">
+            <i class="fa-regular fa-clock"></i>
+            Time
         </div>
 
-        <div class="wave">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
+        <div class="status-pill">
+            <i class="fa-solid fa-location-dot"></i>
+            Location
         </div>
 
-    </main>
+    </div>
 
-</body>
-</html>
+    <div class="wave">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</main>
+
+{% endblock %}

@@ -130,3 +130,10 @@
     }
 
 }
+/* ---------- Right Side ---------- */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
