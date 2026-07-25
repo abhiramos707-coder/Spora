@@ -1,85 +1,83 @@
-/* ==========================================
-   DASHBOARD
-========================================== */
+/* Override base layout for dashboard */
 
-.dashboard{
-    margin-top:40px;
+main{
+    width:100% !important;
+    max-width:none !important;
+
+    margin:0 !important;
+    padding:0 !important;
 }
+.dashboard-container{
 
-.dashboard h1{
-    font-size:3rem;
-    font-weight:700;
-    margin-bottom:15px;
-}
+    width:100%;
 
-.dashboard p{
-    color:var(--muted);
-    font-size:1.1rem;
-    margin-bottom:50px;
-}
-/* ==========================================
-   WELCOME CARD
-========================================== */
+    display:grid;
 
-.welcome-card{
+    grid-template-columns:250px minmax(0,1fr) 340px;
 
-    background:rgba(255,255,255,.05);
+    gap:32px;
 
-    border:1px solid rgba(255,255,255,.08);
+    padding:32px;
 
-    border-radius:24px;
-
-    padding:40px;
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    max-width:900px;
+    min-height:calc(100vh - 90px);
 
 }
 
-.welcome-card h1{
+/* Sidebar */
 
-    font-size:3rem;
+.sidebar{
+    background:#101114;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:28px;
 
-    margin-bottom:15px;
-
-}
-
-.welcome-card p{
-
-    color:var(--muted);
-
-    font-size:1.15rem;
-
-}
-/* ==========================================
-   PROFILE
-========================================== */
-
-.profile-info{
+    padding:22px;
 
     display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    font-weight:600;
-
+    flex-direction:column;
+    justify-content:space-between;
 }
 
-.profile-pic{
+/* Main */
 
-    width:42px;
+.main-content{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
 
-    height:42px;
+/* Right */
 
-    border-radius:50%;
+.right-panel{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
 
-    object-fit:cover;
+/* Hero */
 
-    border:2px solid var(--primary);
+.hero-section{
+    height:340px;
+    border-radius:28px;
+    overflow:hidden;
 
+    background:
+        linear-gradient(rgba(9,9,11,.25), rgba(9,9,11,.55)),
+        url("/static/images/aurora-bg.png");
+
+    background-size:cover;
+    background-position:center;
+
+    border:1px solid rgba(255,255,255,.06);
+}
+
+/* Mood */
+
+.mood-section{
+    min-height:420px;
+
+    background:#101114;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.06);
 }

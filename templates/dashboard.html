@@ -6,39 +6,56 @@ Dashboard
 {% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+<!-- Font Awesome -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- Dashboard CSS -->
+<link rel="stylesheet" href="{% static 'css/dashboard/variables.css' %}">
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/hero.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/cards.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/widgets.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/animations.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/responsive.css' %}">
+
 {% endblock %}
+
 
 {% block navbar_right %}
 
-<div class="profile-info">
+<div class="profile-menu">
 
     {% if profile_image %}
-        <img src="{{ profile_image }}" alt="Profile Picture" class="profile-pic">
+        <img src="{{ profile_image }}" alt="Profile" class="profile-pic">
     {% endif %}
 
-    <span>{{ name }}</span>
+    <span class="profile-name">{{ name }}</span>
+
+    <i class="fa-solid fa-chevron-down"></i>
 
 </div>
 
 {% endblock %}
 
+
 {% block content %}
 
-<div class="dashboard">
+<div class="dashboard-container">
 
-    <div class="welcome-card">
+    {% include "dashboard/sidebar.html" %}
 
-        <h1>👋 Welcome back!</h1>
+    <main class="main-content">
 
-        <p>
-            Ready to generate your perfect playlist?
-        </p>
+        {% include "dashboard/hero.html" %}
 
-    </div>
+        {% include "dashboard/mood.html" %}
+
+    </main>
+
+    {% include "dashboard/right_panel.html" %}
 
 </div>
 

@@ -1,0 +1,32 @@
+:root{
+
+    /* Backgrounds */
+    --bg:#09090b;
+    --surface:#111114;
+    --surface-light:#17171b;
+
+    /* Accent */
+    --spotify:#1ED760;
+    --spotify-dark:#14b34d;
+
+    /* Text */
+    --text:#ffffff;
+    --text-secondary:#b4b4bc;
+
+    /* Borders */
+    --border:rgba(255,255,255,.06);
+
+    /* Radius */
+    --radius-xl:32px;
+    --radius-lg:24px;
+    --radius-md:18px;
+
+    /* Shadows */
+
+    --shadow:
+    0 20px 60px rgba(0,0,0,.45);
+
+    /* Animation */
+
+    --transition:.25s ease;
+}
