@@ -1,35 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-Dashboard
-{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% block extra_css %}
 
-<!-- Font Awesome -->
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-<!-- Dashboard CSS -->
-<link rel="stylesheet" href="{% static 'css/dashboard/variables.css' %}">
-<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/layout.css' %}">
 <link rel="stylesheet" href="{% static 'css/dashboard/sidebar.css' %}">
 <link rel="stylesheet" href="{% static 'css/dashboard/hero.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard/right_panel.css' %}">
 <link rel="stylesheet" href="{% static 'css/dashboard/cards.css' %}">
-<link rel="stylesheet" href="{% static 'css/dashboard/widgets.css' %}">
-<link rel="stylesheet" href="{% static 'css/dashboard/animations.css' %}">
-<link rel="stylesheet" href="{% static 'css/dashboard/responsive.css' %}">
 
 {% endblock %}
-
 
 {% block navbar_right %}
 
 <div class="profile-menu">
 
     {% if profile_image %}
-        <img src="{{ profile_image }}" alt="Profile" class="profile-pic">
+        <img src="{{ profile_image }}"
+             class="profile-pic"
+             alt="Profile">
     {% endif %}
 
     <span class="profile-name">{{ name }}</span>
@@ -40,18 +34,15 @@ Dashboard
 
 {% endblock %}
 
-
 {% block content %}
 
-<div class="dashboard-container">
+<div class="dashboard">
 
     {% include "dashboard/sidebar.html" %}
 
-    <main class="main-content">
+    <main class="content">
 
         {% include "dashboard/hero.html" %}
-
-        {% include "dashboard/mood.html" %}
 
     </main>
 

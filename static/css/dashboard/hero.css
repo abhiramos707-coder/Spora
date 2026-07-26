@@ -1,0 +1,140 @@
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:370px;
+
+    border-radius:30px;
+
+    padding:42px;
+
+    background:
+        linear-gradient(rgba(5,8,10,.60),
+        rgba(5,8,10,.82)),
+        url("/static/images/aurora-bg.png");
+
+    background-size:cover;
+    background-position:center;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+.hero-content{
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    height:100%;
+
+}
+
+.hero h1{
+
+    font-size:52px;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    margin-bottom:14px;
+
+}
+
+.hero h1 span{
+
+    color:#1ED760;
+
+}
+
+.hero p{
+
+    color:#bcc2cb;
+
+    max-width:620px;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+}
+
+.hero-cards{
+
+    margin-top:60px;
+
+    display:flex;
+
+    gap:22px;
+
+}
+
+.glass-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:20px 24px;
+
+    width:240px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.25s;
+
+}
+
+.glass-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#1ED760;
+
+}
+
+.card-icon{
+
+    width:52px;
+    height:52px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:rgba(30,215,96,.15);
+
+    color:#1ED760;
+
+    font-size:22px;
+
+}
+
+.glass-card small{
+
+    color:#9ca3af;
+
+    display:block;
+
+    margin-bottom:4px;
+
+}
+
+.glass-card h3{
+
+    font-size:18px;
+
+}
