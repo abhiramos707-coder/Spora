@@ -1,73 +1,118 @@
-.hero-section{
-    height:340px;
-    border-radius:28px;
-    overflow:hidden;
+/* ==========================================
+   LANDING HERO
+========================================== */
 
-    background:
-        linear-gradient(rgba(8,8,10,.35), rgba(8,8,10,.65)),
-        url("/static/images/aurora-bg.png");
+.hero{
+    width:min(1200px,92%);
+    margin:0 auto;
 
-    background-size:cover;
-    background-position:center;
-
-    border:1px solid rgba(255,255,255,.06);
-}
-
-.hero-overlay{
-    width:100%;
-    height:100%;
+    /* Makes the hero fit on one screen */
+    min-height:calc(100vh - 80px);
 
     display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
     align-items:center;
 
-    padding:48px;
+    text-align:center;
+
+    padding-top:30px;
+    padding-bottom:20px;
 }
 
-.hero-content h1{
-    color:#fff;
-    font-size:2.6rem;
-    margin-bottom:10px;
+/* Center every direct child */
+.hero > *{
+    margin-left:auto;
+    margin-right:auto;
 }
 
-.hero-content p{
-    color:#d6d6d6;
-    font-size:1.1rem;
-    margin-bottom:34px;
+/* ==========================
+   HEADING
+========================== */
+
+.hero h1{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:clamp(3rem,6vw,5rem);
+
+    line-height:1.05;
+
+    font-weight:700;
+
+    letter-spacing:-2px;
+
+    max-width:900px;
+
+    margin-bottom:16px;
 }
 
-.hero-cards{
-    display:flex;
-    gap:18px;
-}
-
-.info-card{
-    display:flex;
-    align-items:center;
-    gap:16px;
-
-    padding:18px 22px;
-
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:20px;
-
-    min-width:220px;
-}
-
-.info-card i{
-    font-size:24px;
+.hero h1 span{
     color:#1ED760;
 }
 
-.info-card h3{
-    color:#fff;
-    margin:0;
+/* ==========================
+   DESCRIPTION
+========================== */
+
+.hero p{
+
+    max-width:680px;
+
+    font-size:1.15rem;
+
+    line-height:1.7;
+
+    color:#b8bec8;
+
+    margin-top:0;
+    margin-bottom:28px;
 }
 
-.info-card span{
-    color:#d0d0d0;
-    font-size:.9rem;
+/* ==========================
+   BUTTONS
+========================== */
+
+.hero-buttons{
+
+    margin-top:0;
+    margin-bottom:30px;
+}
+
+/* ==========================
+   STATUS PILLS
+========================== */
+
+.status-row{
+
+    margin-bottom:25px;
+}
+
+/* ==========================
+   WAVE
+========================== */
+
+.wave{
+
+    margin-top:10px;
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+.background-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        radial-gradient(circle at top,
+        rgba(30,215,96,.12),
+        transparent 55%);
+
+    pointer-events:none;
+
+    z-index:-1;
 }

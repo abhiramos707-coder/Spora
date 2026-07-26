@@ -1,22 +1,32 @@
 import base64
 import requests
 
+from urllib.parse import urlencode
+
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from urllib.parse import urlencode
 
+
+# ==========================
+# Landing Page
+# ==========================
 
 def home(request):
     return render(request, "home.html")
 
+
+# ==========================
+# Spotify Login
+# ==========================
 
 def spotify_login(request):
     scope = (
         "user-read-private "
         "user-read-email "
         "playlist-modify-public "
-        "playlist-modify-private"
+        "playlist-modify-private "
+        "user-read-recently-played"
     )
 
     params = {
@@ -26,13 +36,17 @@ def spotify_login(request):
         "scope": scope,
     }
 
-    auth_url = "https://accounts.spotify.com/authorize?" + urlencode(params)
+    auth_url = (
+        "https://accounts.spotify.com/authorize?"
+        + urlencode(params)
+    )
+
     return redirect(auth_url)
 
 
-from django.shortcuts import redirect
-import requests
-import base64
+# ==========================
+# Spotify Callback
+# ==========================
 
 def spotify_callback(request):
     code = request.GET.get("code")
@@ -43,7 +57,8 @@ def spotify_callback(request):
     token_url = "https://accounts.spotify.com/api/token"
 
     credentials = (
-        f"{settings.SPOTIFY_CLIENT_ID}:{settings.SPOTIFY_CLIENT_SECRET}"
+        f"{settings.SPOTIFY_CLIENT_ID}:"
+        f"{settings.SPOTIFY_CLIENT_SECRET}"
     )
 
     credentials_b64 = base64.b64encode(
@@ -68,20 +83,26 @@ def spotify_callback(request):
     )
 
     if response.status_code != 200:
-        return HttpResponse(f"Error: {response.text}")
+        return HttpResponse(response.text)
 
     token_info = response.json()
+
     access_token = token_info.get("access_token")
 
     if not access_token:
-        return HttpResponse("Failed to get access token.")
+        return HttpResponse("Failed to obtain access token.")
 
-    # Store the access token in the session
     request.session["access_token"] = access_token
 
-    # Redirect to the dashboard
     return redirect("dashboard")
+
+
+# ==========================
+# Dashboard
+# ==========================
+
 def dashboard(request):
+
     access_token = request.session.get("access_token")
 
     if not access_token:
@@ -91,65 +112,71 @@ def dashboard(request):
         "Authorization": f"Bearer {access_token}"
     }
 
-    response = requests.get(
+    # ------------------------
+    # User Profile
+    # ------------------------
+
+    profile_response = requests.get(
         "https://api.spotify.com/v1/me",
-        headers=headers
+        headers=headers,
     )
 
-    if response.status_code != 200:
+    if profile_response.status_code != 200:
         return HttpResponse("Failed to fetch Spotify profile.")
 
-    profile = response.json()
+    profile = profile_response.json()
+
+    # ------------------------
+    # Recently Played
+    # ------------------------
+
+    recent_tracks = []
+
+    recent_response = requests.get(
+        "https://api.spotify.com/v1/me/player/recently-played?limit=4",
+        headers=headers,
+    )
+
+    if recent_response.status_code == 200:
+
+        recent_data = recent_response.json()
+
+        for item in recent_data.get("items", []):
+
+            track = item["track"]
+
+            recent_tracks.append({
+                "name": track["name"],
+                "artist": ", ".join(
+                    artist["name"]
+                    for artist in track["artists"]
+                ),
+                "image": track["album"]["images"][0]["url"],
+            })
+
+    # ------------------------
+    # Context
+    # ------------------------
 
     context = {
+
         "name": profile.get("display_name"),
+
         "email": profile.get("email"),
+
         "country": profile.get("country"),
+
         "profile_image": (
             profile["images"][0]["url"]
             if profile.get("images")
             else None
         ),
+
+        "recent_tracks": recent_tracks,
     }
 
-    return render(request, "dashboard.html", context)
-    # Show Spotify's response if token exchange fails
-   
-    if response.status_code != 200:
-        return HttpResponse(
-            f"<pre>{response.status_code}\n\n{response.text}</pre>"
-        )
-
-    token_info = response.json()
-
-    access_token = token_info.get("access_token")
-
-    if not access_token:
-        return HttpResponse(f"<pre>{token_info}</pre>")
-
-    request.session["access_token"] = access_token
-
-    profile_response = requests.get(
-        "https://api.spotify.com/v1/me",
-        headers={
-            "Authorization": f"Bearer {access_token}"
-        },
-    )
-
-    if profile_response.status_code != 200:
-        return HttpResponse(
-            f"<pre>{profile_response.status_code}\n\n{profile_response.text}</pre>"
-        )
-
-    profile = profile_response.json()
-
-    return HttpResponse(
-        f"""
-        <h2>🎉 Spotify Connected!</h2>
-
-        <p><strong>Name:</strong> {profile.get("display_name")}</p>
-        <p><strong>Email:</strong> {profile.get("email")}</p>
-        <p><strong>Country:</strong> {profile.get("country")}</p>
-        <p><strong>Spotify ID:</strong> {profile.get("id")}</p>
-        """
+    return render(
+        request,
+        "dashboard.html",
+        context,
     )

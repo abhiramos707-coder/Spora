@@ -1,20 +1,91 @@
 <aside class="right-panel">
 
-    <div class="placeholder-card">
+    <!-- Recently Played -->
+    <div class="widget-card">
 
-        <h3>Recently Played</h3>
+        <div class="widget-header">
+            <h3>Recently Played</h3>
+            <a href="#">View All</a>
+        </div>
+
+        {% for song in recent_tracks %}
+
+        <div class="recent-song">
+
+            <img src="{{ song.image }}" alt="{{ song.name }}">
+
+            <div class="song-details">
+
+                <div class="song-title">
+                    {{ song.name }}
+                </div>
+
+                <div class="song-artist">
+                    {{ song.artist }}
+                </div>
+
+            </div>
+
+            <i class="fa-solid fa-play play-icon"></i>
+
+        </div>
+
+        {% empty %}
+
+        <p class="empty-text">
+            No recently played songs.
+        </p>
+
+        {% endfor %}
 
     </div>
 
-    <div class="placeholder-card">
 
-        <h3>Top Genres</h3>
+    <!-- Top Genres -->
+
+    <div class="widget-card">
+
+        <div class="widget-header">
+            <h3>Top Genres</h3>
+        </div>
+
+        <div class="genre-list">
+
+            <span class="genre-chip">Pop</span>
+            <span class="genre-chip">Lo-Fi</span>
+            <span class="genre-chip">Malayalam</span>
+            <span class="genre-chip">Indie</span>
+
+        </div>
 
     </div>
 
-    <div class="placeholder-card">
 
-        <h3>Your Vibe</h3>
+    <!-- Your Vibe -->
+
+    <div class="widget-card">
+
+        <div class="widget-header">
+            <h3>Your Vibe</h3>
+        </div>
+
+        <div class="vibe-card">
+
+            <div class="emoji">
+                🌙
+            </div>
+
+            <div>
+
+                <h4>Calm Evening</h4>
+
+                <p>
+                    Perfect for chill playlists.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 

@@ -53,3 +53,52 @@
     color:white;
     font-weight:600;
 }
+/* ==========================
+   CONNECT SPOTIFY BUTTON
+========================== */
+
+.connect-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 22px;
+
+    background:#12161d;
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:999px;
+
+    color:#fff;
+    text-decoration:none;
+
+    font-weight:600;
+    font-size:15px;
+
+    transition:.3s ease;
+}
+
+.connect-btn:hover{
+
+    background:#1ED760;
+    color:#000;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(30,215,96,.35);
+
+}
+
+.connect-btn i{
+
+    color:#1ED760;
+    transition:.3s;
+
+}
+
+.connect-btn:hover i{
+
+    color:#000;
+
+}

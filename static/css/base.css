@@ -102,9 +102,9 @@ button{
 ========================================== */
 
 main{
-    width: min(1280px, 92%);
-    margin: 0 auto;
-    padding: 40px 0;
+    width:min(1280px,92%);
+    margin:0 auto;
+    padding:0;
 }
 
 /* ==========================================

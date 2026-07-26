@@ -1,140 +1,152 @@
 .hero{
 
     position:relative;
-
     overflow:hidden;
 
     min-height:370px;
 
     border-radius:30px;
 
-    padding:42px;
+    padding:45px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 
     background:
-        linear-gradient(rgba(5,8,10,.60),
-        rgba(5,8,10,.82)),
+        linear-gradient(rgba(5,8,10,.65),
+        rgba(5,8,10,.88)),
         url("/static/images/aurora-bg.png");
 
     background-size:cover;
     background-position:center;
 
     border:1px solid rgba(255,255,255,.06);
-
 }
 
-.hero-content{
 
-    display:flex;
-    flex-direction:column;
+/* AI Badge */
 
-    justify-content:space-between;
+.hero-badge{
 
-    height:100%;
+    display:inline-flex;
 
+    align-items:center;
+
+    gap:10px;
+
+    width:max-content;
+
+    padding:8px 16px;
+
+    margin-bottom:22px;
+
+    border-radius:999px;
+
+    background:rgba(30,215,96,.12);
+
+    color:#1ED760;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    border:1px solid rgba(30,215,96,.25);
 }
+
+
+/* Heading */
 
 .hero h1{
 
-    font-size:52px;
+    font-size:60px;
 
-    line-height:1.1;
+    line-height:1.05;
 
     font-weight:800;
 
-    margin-bottom:14px;
+    margin-bottom:18px;
 
+    max-width:700px;
 }
 
 .hero h1 span{
 
     color:#1ED760;
-
 }
+
+
+/* Description */
 
 .hero p{
 
-    color:#bcc2cb;
+    color:#b8bec8;
 
-    max-width:620px;
+    max-width:560px;
 
     font-size:18px;
 
-    line-height:1.6;
+    line-height:1.8;
 
+    margin-bottom:35px;
 }
 
-.hero-cards{
 
-    margin-top:60px;
+/* Buttons */
+
+.hero-actions{
 
     display:flex;
 
-    gap:22px;
+    gap:18px;
 
+    flex-wrap:wrap;
 }
 
-.glass-card{
+.generate-btn{
 
-    display:flex;
+    border:none;
 
-    align-items:center;
+    background:#1ED760;
 
-    gap:16px;
+    color:#000;
 
-    padding:20px 24px;
+    font-weight:700;
 
-    width:240px;
+    padding:16px 28px;
 
-    border-radius:20px;
+    border-radius:16px;
 
-    background:rgba(255,255,255,.06);
-
-    backdrop-filter:blur(14px);
-
-    border:1px solid rgba(255,255,255,.08);
+    cursor:pointer;
 
     transition:.25s;
-
 }
 
-.glass-card:hover{
+.generate-btn:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-3px);
 
-    border-color:#1ED760;
-
+    box-shadow:0 0 30px rgba(30,215,96,.35);
 }
 
-.card-icon{
+.secondary-btn{
 
-    width:52px;
-    height:52px;
+    background:transparent;
 
-    display:grid;
-    place-items:center;
+    color:white;
 
-    border-radius:14px;
+    border:1px solid rgba(255,255,255,.12);
 
-    background:rgba(30,215,96,.15);
+    padding:16px 28px;
 
-    color:#1ED760;
+    border-radius:16px;
 
-    font-size:22px;
+    cursor:pointer;
 
+    transition:.25s;
 }
 
-.glass-card small{
+.secondary-btn:hover{
 
-    color:#9ca3af;
-
-    display:block;
-
-    margin-bottom:4px;
-
-}
-
-.glass-card h3{
-
-    font-size:18px;
-
+    background:rgba(255,255,255,.06);
 }
